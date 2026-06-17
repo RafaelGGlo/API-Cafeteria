@@ -1,0 +1,23 @@
+# Environment
+.env
+
+# Node modules
+/node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Flutter/Dart nested app artifacts
+/cafeteria2/
+/cafeteria2/.dart_tool/
+/cafeteria2/build/
+/cafeteria2/.packages
+/cafeteria2/.flutter-plugins
+/cafeteria2/.flutter-plugins-dependencies
