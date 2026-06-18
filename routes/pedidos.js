@@ -213,7 +213,12 @@ router.post("/", async (req, res) => {
       await client.query("ROLLBACK");
     }
 
-    return res.status(500).json({ erro: "Erro ao criar pedido." });
+    console.error('Erro ao criar pedido:', error);
+
+    return res.status(500).json({
+      erro: "Erro ao criar pedido.",
+      detalhe: error.message
+    });
   } finally {
     if (client) {
       client.release();
