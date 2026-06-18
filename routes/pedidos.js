@@ -164,17 +164,15 @@ router.post("/", async (req, res) => {
     }
 
     const pedidoResultado = await client.query(
-      `INSERT INTO pedidos (numero_pedido, usuario_id, cliente_nome, mesa, status, total,
+      `INSERT INTO pedidos (usuario_id, cliente_nome, mesa, status, total,
                             forma_pagamento, observacao)
-       VALUES ($1, $2, $3, $4, $5, 0, $6, $7)
+       VALUES ($1, $2, $3, 'recebido', 0, $4, $5)
        RETURNING id, numero_pedido, usuario_id, cliente_nome, mesa, status, total,
                  forma_pagamento, observacao, criado_em, atualizado_em`,
       [
-        `PED-${Date.now()}`,
         usuario_id,
         cliente_nome || null,
         mesa || null,
-        "recebido",
         forma_pagamento || null,
         observacao || null
       ]
